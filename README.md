@@ -68,7 +68,3 @@ Deliverables
 - GitHub Repository
 - Screenshots & Notes
 - 12-Minute Demo Video
-
-# Ethical Notice
-
-All activities were performed in a controlled lab environment for educational and ethical cybersecurity learning purposes only.
