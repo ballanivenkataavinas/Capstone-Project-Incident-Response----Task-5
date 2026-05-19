@@ -1,4 +1,4 @@
-# Day 49 - Capstone Project Planning & Scope Definition
+# Day 49 - Capstone Project Planning & Scope 
 
 Introduction
 
