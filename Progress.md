@@ -136,3 +136,157 @@ ifconfig
 ping <target-ip>
 nmap -sV <target-ip>
 
+# Day 50 - Network Reconnaissance and Vulnerability Assessment
+
+Introduction
+
+Reconnaissance and scanning are the first technical phases of penetration testing. These phases help identify:
+- Active hosts
+- Open ports
+- Running services
+- Vulnerabilities
+- Attack surface
+
+Lab Environment
+
+Attacker Machine
+- Kali Linux
+
+Target Machines
+- Metasploitable2
+- DVWA
+
+Step 1 – Verify Network Connectivity
+
+Check attacker IP:
+
+bash
+ifconfig
+
+
+Ping target system:
+
+bash
+ping <target-ip>
+
+
+Purpose:
+- Verify target is reachable
+- Confirm network communication
+
+Step 2 – Basic Port Scanning
+
+Perform service scan:
+
+bash
+nmap -sV <target-ip>
+
+
+This scan identifies:
+- Open ports
+- Running services
+- Service versions
+
+Step 3 – Aggressive Scan
+
+bash
+sudo nmap -A <target-ip>
+
+
+Aggressive scan performs:
+- OS detection
+- Service enumeration
+- Script scanning
+- Traceroute
+
+Step 4 – Vulnerability Scanning
+
+Run vulnerability detection scripts:
+
+bash
+nmap --script vuln <target-ip>
+
+
+Purpose:
+- Detect known vulnerabilities
+- Identify weak services
+- Find misconfigurations
+
+Step 5 – UDP Scan
+
+bash
+sudo nmap -sU <target-ip>
+
+
+Checks UDP services such as:
+- DNS
+- SNMP
+- DHCP
+
+Step 6 – Save Scan Results
+
+Save output to file:
+
+bash
+nmap -sV <target-ip> -oN scan_report.txt
+
+
+Purpose:
+- Documentation
+- Evidence collection
+- Reporting
+
+Services Identified
+
+Common vulnerable services:
+- FTP
+- SSH
+- Telnet
+- HTTP
+- SMB
+
+Security Risks Observed
+
+- Outdated services
+- Open unnecessary ports
+- Weak configurations
+- Exposed vulnerable applications
+
+Importance of Reconnaissance
+
+Recon helps attackers:
+- Map the target
+- Identify entry points
+- Plan exploitation strategy
+
+It also helps defenders:
+- Understand exposure
+- Detect weaknesses
+- Improve security posture
+
+Mitigation Techniques
+
+- Disable unused services
+- Close unnecessary ports
+- Apply security patches
+- Restrict network access
+- Monitor suspicious traffic
+
+Key Concepts Learned
+
+- Host discovery
+- Port scanning
+- Service enumeration
+- Vulnerability assessment
+- Network reconnaissance
+
+Commands Practiced Today
+
+bash
+ifconfig
+ping <target-ip>
+nmap -sV <target-ip>
+sudo nmap -A <target-ip>
+nmap --script vuln <target-ip>
+sudo nmap -sU <target-ip>
+nmap -sV <target-ip> -oN scan_report.txt
