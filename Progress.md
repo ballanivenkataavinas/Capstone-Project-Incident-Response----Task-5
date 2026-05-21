@@ -290,3 +290,162 @@ sudo nmap -A <target-ip>
 nmap --script vuln <target-ip>
 sudo nmap -sU <target-ip>
 nmap -sV <target-ip> -oN scan_report.txt
+
+Day 51 - Web Application Security Assessment
+
+Introduction
+
+Web application security testing helps identify vulnerabilities that attackers can exploit to:
+- Steal sensitive data
+- Bypass authentication
+- Execute malicious scripts
+- Gain unauthorized access
+
+Lab Environment
+
+Attacker Machine
+- Kali Linux
+
+Target Application
+- DVWA (Damn Vulnerable Web Application)
+
+Tools Used
+- Burp Suite
+- Browser
+- DVWA
+
+Step 1 – Start DVWA Services
+
+Start Apache:
+
+bash
+sudo systemctl start apache2
+
+
+Start MariaDB:
+
+bash
+sudo systemctl start mariadb
+
+
+Step 2 – Access DVWA
+
+Open browser:
+
+text
+http://127.0.0.1/dvwa
+
+
+Login credentials:
+
+text
+Username: admin
+Password: password
+
+Step 3 – Configure DVWA Security Level
+
+Go to:
+- DVWA Security
+
+Set:
+- Security Level = Low
+
+Purpose:
+- Demonstrate vulnerabilities easily
+
+Step 4 – SQL Injection Testing
+
+Navigate to:
+- SQL Injection section
+
+Test payload:
+
+sql
+' OR '1'='1
+
+
+Purpose:
+- Bypass SQL query validation
+- Extract database information
+
+Step 5 – Cross-Site Scripting (XSS)
+
+Navigate to:
+- XSS (Stored)
+
+Payload:
+
+html
+<script>alert('XSS')</script>
+
+
+Result:
+- JavaScript executes inside browser
+
+Step 6 – Reflected XSS
+
+Navigate to:
+- XSS (Reflected)
+
+Inject:
+
+html
+<script>alert('Reflected')</script>
+
+
+Purpose:
+- Demonstrate user-input execution
+
+Step 7 – Request Interception with Burp Suite
+
+Start Burp Suite:
+
+bash
+burpsuite
+
+
+Enable:
+- Proxy → Intercept ON
+
+Capture HTTP requests:
+- Login requests
+- Form submissions
+- Parameters
+
+Step 8 – Analyze Security Risks
+
+Observed risks:
+- Input validation failure
+- Unsanitized user input
+- Weak authentication
+- Session exposure
+
+Common OWASP Risks Identified
+
+- SQL Injection
+- Cross-Site Scripting
+- Broken Authentication
+- Security Misconfiguration
+
+Mitigation Techniques
+
+- Prepared statements
+- Input validation
+- Output encoding
+- Content Security Policy (CSP)
+- Strong authentication
+
+Key Concepts Learned
+
+- Web vulnerability testing
+- SQL Injection basics
+- Stored and Reflected XSS
+- Request interception
+- Web security risks
+
+Commands Practiced Today
+
+bash
+sudo systemctl start apache2
+sudo systemctl start mariadb
+burpsuite
