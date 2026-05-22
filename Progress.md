@@ -449,3 +449,182 @@ bash
 sudo systemctl start apache2
 sudo systemctl start mariadb
 burpsuite
+
+# Day 52 - Incident Detection and Traffic Analysis
+
+
+Introduction
+
+Incident detection is the process of identifying suspicious or unauthorized activity within a network or system.
+
+Traffic analysis helps security analysts:
+- Detect attacks
+- Investigate incidents
+- Monitor communications
+- Identify malicious packets
+
+Lab Environment
+
+Attacker Machine
+- Kali Linux
+
+Target Machine
+- Metasploitable2
+
+Tool Used
+- Wireshark
+
+Step 1 – Start Wireshark
+
+Open terminal:
+
+bash
+wireshark
+
+
+Or open from applications menu.
+
+Step 2 – Select Network Interface
+
+Choose active interface:
+- eth0
+- enp0s3
+
+Start packet capture.
+
+Step 3 – Generate Network Traffic
+
+Ping target machine:
+
+bash
+ping <target-ip>
+
+
+Open DVWA in browser:
+
+text
+http://<target-ip>/dvwa
+
+
+Purpose:
+- Generate HTTP and ICMP traffic
+
+Step 4 – Analyze ICMP Traffic
+
+Wireshark filter:
+
+text
+icmp
+
+
+Observe:
+- Echo requests
+- Echo replies
+- Source and destination IPs
+
+Step 5 – Analyze HTTP Traffic
+
+Filter:
+
+text
+http
+
+
+Observe:
+- GET requests
+- POST requests
+- URLs
+- User-Agent headers
+
+Step 6 – Analyze DNS Traffic
+
+Filter:
+
+text
+dns
+
+
+Purpose:
+- Identify domain lookups
+- Monitor DNS activity
+
+Step 7 – Detect Suspicious Activity
+
+Indicators observed:
+- Repeated requests
+- Unusual traffic spikes
+- Unauthorized connections
+- Large packet volume
+
+Step 8 – Capture Credentials from FTP
+
+Filter:
+
+text
+ftp
+
+
+Observe:
+- Plaintext usernames
+- Plaintext passwords
+
+This demonstrates why unencrypted protocols are dangerous.
+
+Step 9 – Export Packet Capture
+
+Save capture file:
+- File → Save As
+
+Format:
+- .pcap
+
+Purpose:
+- Incident evidence
+- Future analysis
+- Reporting
+
+Common Attack Indicators
+
+- Port scanning
+- SYN floods
+- Brute-force attempts
+- Unusual outbound traffic
+
+Importance of Traffic Analysis
+
+Traffic analysis helps:
+- Detect intrusions
+- Investigate incidents
+- Monitor attacks
+- Improve network visibility
+
+Mitigation Techniques
+
+- Use encrypted protocols
+- Monitor traffic continuously
+- Deploy IDS/IPS systems
+- Configure firewall rules
+- Analyze suspicious logs
+
+Key Concepts Learned
+
+- Packet capture
+- Protocol analysis
+- Traffic filtering
+- Incident detection
+- Suspicious activity analysis
+
+Commands Practiced Today
+
+bash
+wireshark
+ping <target-ip>
+
+Wireshark Filters Practiced
+
+text
+icmp
+http
+dns
+ftp
+
