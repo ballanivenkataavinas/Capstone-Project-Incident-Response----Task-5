@@ -628,3 +628,177 @@ http
 dns
 ftp
 
+# Day 53 - Incident Containment and Firewall Response
+
+Introduction
+
+Incident containment is the process of limiting the impact of a cyberattack after suspicious activity is detected.
+
+The main goals are:
+- Stop attacker communication
+- Prevent further damage
+- Protect critical systems
+- Isolate compromised services
+
+Lab Environment
+
+Attacker Machine
+- Kali Linux
+
+Target Machine
+- Metasploitable2
+
+Tools Used
+- iptables
+- Netstat
+- Wireshark
+
+Step 1 – Check Active Connections
+
+View active network connections:
+
+bash
+netstat -tulnp
+
+
+or
+
+bash
+ss -tulnp
+
+
+Purpose:
+- Identify listening services
+- Detect suspicious ports
+- Monitor active sessions
+
+Step 2 – View Current Firewall Rules
+
+bash
+sudo iptables -L
+
+
+This displays:
+- INPUT rules
+- OUTPUT rules
+- Allowed and blocked traffic
+
+
+Step 3 – Block Malicious Port
+
+Example: Block Telnet service
+
+bash
+sudo iptables -A INPUT -p tcp --dport 23 -j DROP
+
+
+Purpose:
+- Prevent Telnet access
+- Reduce attack surface
+
+
+Step 4 – Allow Secure SSH Access
+
+bash
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+
+Purpose:
+- Maintain secure remote administration
+
+
+Step 5 – Block Specific IP Address
+
+bash
+sudo iptables -A INPUT -s <attacker-ip> -j DROP
+
+
+Example:
+
+bash
+sudo iptables -A INPUT -s 1x.1x.x.102 -j DROP
+
+
+Purpose:
+- Prevent malicious host communication
+
+ Step 6 – Disable Unused Services
+
+Check services:
+
+bash
+systemctl list-units --type=service
+
+
+Disable unnecessary service:
+
+bash
+sudo systemctl stop apache2
+
+
+Disable permanently:
+
+bash
+sudo systemctl disable apache2
+
+
+ Step 7 – Verify Firewall Rules
+
+bash
+sudo iptables -L
+
+
+Confirm blocked ports and IPs.
+
+
+Importance of Incident Containment
+
+Containment helps:
+- Stop lateral movement
+- Prevent further exploitation
+- Limit data exposure
+- Reduce attacker persistence
+
+
+Indicators of Compromise
+
+Common indicators:
+- Unusual outbound traffic
+- Unknown connections
+- Repeated failed logins
+- Unexpected open ports
+
+
+Defensive Security Practices
+
+- Enable firewalls
+- Restrict unnecessary ports
+- Monitor logs
+- Apply security patches
+- Disable vulnerable services
+
+
+Key Concepts Learned
+
+- Incident containment
+- Firewall configuration
+- Traffic blocking
+- Service isolation
+- Defensive response techniques
+
+
+
+Commands Practiced Today
+
+bash
+netstat -tulnp
+ss -tulnp
+sudo iptables -L
+sudo iptables -A INPUT -p tcp --dport 23 -j DROP
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+sudo iptables -A INPUT -s <attacker-ip> -j DROP
+systemctl list-units --type=service
+sudo systemctl stop apache2
+sudo systemctl disable apache2
+
+
