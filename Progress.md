@@ -801,4 +801,211 @@ systemctl list-units --type=service
 sudo systemctl stop apache2
 sudo systemctl disable apache2
 
+# Day 54 - Incident Eradication and Recovery
+
+Introduction
+
+After detecting and containing an attack, security teams must:
+- Remove malicious activity
+- Eliminate vulnerabilities
+- Restore services safely
+- Prevent future compromise
+
+This phase is called:
+- Eradication and Recovery
+
+Incident Response Lifecycle
+
+1. Detection  
+2. Analysis  
+3. Containment  
+4. Eradication  
+5. Recovery  
+6. Reporting  
+
+Today focuses on:
+- Eradication
+- Recovery
+
+Lab Environment
+
+Attacker Machine
+- Kali Linux
+
+Target Machine
+- Metasploitable2
+
+Tools Used
+- iptables
+- systemctl
+- netstat
+- Linux Logs
+
+Step 1 – Identify Suspicious Services
+
+Check active services:
+
+bash
+systemctl list-units --type=service
+
+
+Purpose:
+- Detect unnecessary or suspicious services
+- Verify running applications
+
+
+Step 2 – Stop Vulnerable Services
+
+Example: Stop Telnet service
+
+bash
+sudo systemctl stop xinetd
+
+
+Disable permanently:
+
+bash
+sudo systemctl disable xinetd
+
+
+Purpose:
+- Remove insecure services
+- Prevent attacker access
+
+Step 3 – Check Open Ports
+
+bash
+netstat -tulnp
+
+
+or
+
+bash
+ss -tulnp
+
+
+Purpose:
+- Verify active network ports
+- Confirm suspicious ports are closed
+
+Step 4 – Remove Malicious Firewall Rules
+
+View rules:
+
+bash
+sudo iptables -L
+
+
+Flush rules if required:
+
+bash
+sudo iptables -F
+
+
+Purpose:
+- Reset incorrect firewall configurations
+- Restore proper traffic flow
+
+Step 5 – Apply Security Updates
+
+Update repositories:
+
+bash
+sudo apt update
+
+
+Upgrade packages:
+
+bash
+sudo apt upgrade -y
+
+
+Purpose:
+- Patch vulnerabilities
+- Improve system security
+
+Step 6 – Restart Essential Services
+
+Restart Apache:
+
+bash
+sudo systemctl restart apache2
+
+
+Restart database:
+
+bash
+sudo systemctl restart mariadb
+
+
+Purpose:
+- Restore normal functionality
+- Verify service integrity
+
+Step 7 – Monitor Logs
+
+Check authentication logs:
+
+bash
+sudo cat /var/log/auth.log
+
+
+Check Apache logs:
+
+bash
+sudo cat /var/log/apache2/access.log
+
+
+Purpose:
+- Investigate attacker actions
+- Detect suspicious activity
+
+Recovery Validation
+
+Verify:
+- Services running correctly
+- No suspicious connections
+- Firewall functioning
+- Applications accessible
+
+Security Improvements Applied
+
+- Disabled vulnerable services
+- Applied patches
+- Updated firewall rules
+- Reviewed system logs
+- Restricted unnecessary access
+
+Importance of Recovery
+
+Recovery ensures:
+- Systems return safely online
+- Threats are removed
+- Services operate securely
+- Future attacks are minimized
+
+Key Concepts Learned
+
+- Threat eradication
+- Service recovery
+- Patch management
+- Log analysis
+- Secure restoration
+
+Commands Practiced Today
+
+bash
+systemctl list-units --type=service
+sudo systemctl stop xinetd
+sudo systemctl disable xinetd
+netstat -tulnp
+ss -tulnp
+sudo iptables -L
+sudo iptables -F
+sudo apt update
+sudo apt upgrade -y
+sudo systemctl restart apache2
+sudo systemctl restart mariadb
+sudo cat /var/log/auth.log
+sudo cat /var/log/apache2/access.log
 
