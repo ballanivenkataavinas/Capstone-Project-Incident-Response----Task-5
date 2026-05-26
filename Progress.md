@@ -1172,4 +1172,195 @@ netstat -tulnp
 ss -tulnp
 sudo tail -f /var/log/auth.log
 
+# Day 56 - Security Hardening and Access Control
 
+
+Introduction
+
+Security hardening reduces the attack surface of a system by:
+- Restricting unauthorized access
+- Applying secure configurations
+- Limiting user privileges
+- Protecting sensitive resources
+
+Access control is one of the most important aspects of cybersecurity defense.
+
+
+Importance of Access Control
+
+Access control helps:
+- Prevent unauthorized access
+- Protect sensitive files
+- Limit attacker capabilities
+- Improve system security
+
+Types of Access Control
+
+| Type | Description |
+|---|---|
+| Authentication | Verifying user identity |
+| Authorization | Granting permissions |
+| Accountability | Tracking user actions |
+
+Lab Environment
+
+Attacker Machine
+- Kali Linux
+
+Target Machine
+- Metasploitable2
+
+Step 1 – View Current Users
+
+bash
+cat /etc/passwd
+
+
+Purpose:
+- Display system users
+- Identify unnecessary accounts
+
+Step 2 – Create New User
+
+bash
+sudo adduser analyst
+
+
+Purpose:
+- Create separate user account
+- Improve accountability
+
+Step 3 – Set User Password
+
+bash
+sudo passwd analyst
+
+
+Purpose:
+- Configure secure password
+
+
+Step 4 – Check File Permissions
+
+bash
+ls -l
+
+
+Purpose:
+- View read, write, execute permissions
+
+
+Understanding Linux Permissions
+
+| Permission | Meaning |
+|---|---|
+| r | Read |
+| w | Write |
+| x | Execute |
+
+Permission groups:
+- Owner
+- Group
+- Others
+
+
+Step 5 – Change File Permissions
+
+Example:
+
+bash
+chmod 700 confidential.txt
+
+
+Purpose:
+- Restrict unauthorized access
+
+
+Step 6 – Change File Ownership
+
+bash
+sudo chown analyst confidential.txt
+
+
+Purpose:
+- Assign file ownership securely
+
+Step 7 – Disable Root SSH Login
+
+Open SSH configuration:
+
+bash
+sudo nano /etc/ssh/sshd_config
+
+
+Find:
+
+text
+PermitRootLogin yes
+
+
+Change to:
+
+text
+PermitRootLogin no
+
+
+Restart SSH:
+
+bash
+sudo systemctl restart ssh
+
+
+Purpose:
+- Prevent direct root access
+
+
+
+Step 8 – Lock Unused User Account
+
+bash
+sudo passwd -l username
+
+
+Purpose:
+- Disable unnecessary accounts
+
+
+Security Risks of Poor Access Control
+
+Weak access control can lead to:
+- Unauthorized access
+- Privilege escalation
+- Data theft
+- System compromise
+
+Hardening Best Practices
+
+- Use strong passwords
+- Limit root access
+- Apply least privilege principle
+- Restrict file permissions
+- Monitor login activity
+- Disable unused accounts
+
+Key Concepts Learned
+
+- Access control
+- Linux permissions
+- User management
+- File ownership
+- SSH hardening
+- System security
+
+Commands Practiced Today
+
+bash
+cat /etc/passwd
+sudo adduser analyst
+sudo passwd analyst
+ls -l
+chmod 700 confidential.txt
+sudo chown analyst confidential.txt
+sudo nano /etc/ssh/sshd_config
+sudo systemctl restart ssh
+sudo passwd -l username
