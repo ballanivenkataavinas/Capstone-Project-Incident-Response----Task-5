@@ -1009,3 +1009,167 @@ sudo systemctl restart mariadb
 sudo cat /var/log/auth.log
 sudo cat /var/log/apache2/access.log
 
+# Day 55 - Security Monitoring and Log Analysis
+
+Introduction
+
+Security monitoring is the continuous observation of systems, networks, and logs to identify:
+- Unauthorized access
+- Failed login attempts
+- Malware activity
+- Suspicious network behavior
+
+Logs are critical sources of evidence during incident investigations.
+
+Importance of Log Analysis
+
+Log analysis helps:
+- Detect attacks
+- Investigate incidents
+- Track attacker activity
+- Monitor user behavior
+- Improve security posture
+
+Lab Environment
+
+Attacker Machine
+- Kali Linux
+
+Target Machine
+- Metasploitable2
+
+Tools Used
+- Linux Logs
+- Wireshark
+- Netstat
+
+Types of Important Logs
+
+| Log Type | Purpose |
+|---|---|
+| Authentication Logs | Login attempts |
+| Apache Logs | Web requests |
+| System Logs | System events |
+| Firewall Logs | Blocked traffic |
+| Application Logs | App activities |
+
+Step 1 – Analyze Authentication Logs
+
+View login activity:
+
+bash
+sudo cat /var/log/auth.log
+
+
+Purpose:
+- Detect failed logins
+- Identify brute-force attacks
+- Monitor SSH access
+
+Step 2 – Monitor Apache Access Logs
+
+bash
+sudo cat /var/log/apache2/access.log
+
+
+Purpose:
+- Analyze web requests
+- Detect suspicious URLs
+- Investigate attacker behavior
+
+Step 3 – Analyze Apache Error Logs
+
+bash
+sudo cat /var/log/apache2/error.log
+
+
+Purpose:
+- Detect application issues
+- Identify malicious requests
+- Troubleshoot server problems
+
+
+Step 4 – Monitor Active Connections
+
+bash
+netstat -tulnp
+
+
+or
+
+bash
+ss -tulnp
+
+
+Purpose:
+- Detect suspicious ports
+- Identify unknown services
+- Monitor active sessions
+
+Step 5 – Real-Time Log Monitoring
+
+Use tail command:
+
+bash
+sudo tail -f /var/log/auth.log
+
+
+Purpose:
+- Monitor live authentication activity
+- Detect attacks in real time
+
+Indicators of Suspicious Activity
+
+Common indicators:
+- Multiple failed logins
+- Unknown IP addresses
+- Repeated HTTP requests
+- Unexpected service activity
+- Unusual outbound traffic
+
+Security Monitoring Workflow
+
+1. Collect logs  
+2. Analyze events  
+3. Detect anomalies  
+4. Investigate incidents  
+5. Respond to threats  
+
+Importance of Monitoring
+
+Monitoring helps organizations:
+- Detect attacks early
+- Reduce incident impact
+- Improve visibility
+- Support forensic investigations
+
+
+Mitigation Techniques
+
+- Enable centralized logging
+- Monitor failed login attempts
+- Configure alerts
+- Restrict unauthorized access
+- Regularly review logs
+
+
+Key Concepts Learned
+
+- Security monitoring
+- Log analysis
+- Authentication tracking
+- Web log investigation
+- Incident detection
+
+
+Commands Practiced Today
+
+bash
+sudo cat /var/log/auth.log
+sudo cat /var/log/apache2/access.log
+sudo cat /var/log/apache2/error.log
+netstat -tulnp
+ss -tulnp
+sudo tail -f /var/log/auth.log
+
+
