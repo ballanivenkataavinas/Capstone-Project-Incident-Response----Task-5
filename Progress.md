@@ -1364,3 +1364,167 @@ sudo chown analyst confidential.txt
 sudo nano /etc/ssh/sshd_config
 sudo systemctl restart ssh
 sudo passwd -l username
+
+# Day 57 - Backup, Recovery, and Business Continuity
+
+
+# Introduction
+
+Cyberattacks, hardware failures, accidental deletion, and malware infections can cause:
+- Data loss
+- Service disruption
+- Financial damage
+
+Backup and recovery planning helps organizations restore systems and continue operations after incidents.
+
+
+Importance of Backups
+
+Backups help:
+- Recover lost data
+- Restore compromised systems
+- Minimize downtime
+- Support incident recovery
+
+Types of Backups
+
+| Backup Type | Description |
+|---|---|
+| Full Backup | Copies all data |
+| Incremental Backup | Copies only changed data |
+| Differential Backup | Copies data changed since last full backup |
+
+Business Continuity
+
+Business continuity ensures:
+- Critical operations continue
+- Services remain available
+- Recovery happens quickly
+
+Disaster Recovery
+
+Disaster recovery focuses on:
+- Restoring systems
+- Recovering data
+- Returning services to normal operation
+
+
+Lab Environment
+
+Operating System
+- Kali Linux
+
+Tools Used
+- tar
+- rsync
+- cp
+
+Step 1 – Create Backup Directory
+
+bash
+mkdir backups
+
+
+Purpose:
+- Store backup files securely
+
+Step 2 – Create File Backup Using tar
+
+bash
+tar -cvf backup.tar important_files/
+
+
+Purpose:
+- Archive important files
+- Create portable backup
+
+Step 3 – Compress Backup
+
+bash
+tar -czvf backup.tar.gz important_files/
+
+
+Purpose:
+- Reduce storage usage
+- Compress backup archive
+
+Step 4 – Restore Backup
+
+bash
+tar -xvf backup.tar
+
+
+Purpose:
+- Recover archived files
+
+Step 5 – Backup Using rsync
+
+bash
+rsync -av important_files/ backups/
+
+
+Purpose:
+- Synchronize files
+- Efficient incremental backups
+
+Step 6 – Verify Backup Integrity
+
+List archive contents:
+
+bash
+tar -tvf backup.tar
+
+
+Purpose:
+- Confirm backup contents
+- Validate backup creation
+
+Common Backup Risks
+
+- Backup corruption
+- Unencrypted backups
+- Missing recovery plans
+- Single backup location
+
+Backup Best Practices
+
+- Maintain multiple backups
+- Use offsite storage
+- Encrypt sensitive backups
+- Test restoration regularly
+- Automate backup schedules
+
+Recovery Planning
+
+A recovery plan should include:
+- Recovery procedures
+- System priorities
+- Backup locations
+- Emergency contacts
+
+Importance in Cybersecurity
+
+Backups help defend against:
+- Ransomware attacks
+- System failures
+- Data corruption
+- Insider threats
+
+Key Concepts Learned
+
+- Backup strategies
+- Disaster recovery
+- Business continuity
+- Backup restoration
+- Data protection
+
+Commands Practiced Today
+
+bash
+mkdir backups
+tar -cvf backup.tar important_files/
+tar -czvf backup.tar.gz important_files/
+tar -xvf backup.tar
+rsync -av important_files/ backups/
+tar -tvf backup.tar
+
