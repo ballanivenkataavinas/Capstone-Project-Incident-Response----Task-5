@@ -1992,4 +1992,256 @@ sudo iptables -L
 cat /etc/passwd
 systemctl list-units --type=service
 
+# Day 60 - Capstone Project Completion, Final Review and Lessons Learned
 
+
+# Introduction
+
+Day 60 marks the completion of the Capstone Project and Incident Response Simulation.
+
+This phase focuses on:
+
+- Reviewing all completed tasks
+- Verifying project objectives
+- Summarizing findings
+- Documenting lessons learned
+- Preparing final deliverables
+
+The goal is to demonstrate both offensive and defensive cybersecurity knowledge acquired throughout the internship.
+
+
+
+Project Overview
+
+#Project Title
+
+Cybersecurity Capstone Project & Incident Response Simulation
+
+
+Lab Environment
+
+Attacker Machine
+
+- Kali Linux
+
+Target Systems
+
+- DVWA
+- Metasploitable2
+
+Platform
+
+- VirtualBox
+
+Network
+
+- Host-Only Adapter
+
+
+Activities Completed
+
+Reconnaissance
+
+Performed:
+
+bash
+ping <target-ip>
+
+
+bash
+nmap -sV <target-ip>
+
+
+Objectives achieved:
+
+- Host discovery
+- Service enumeration
+- Attack surface identification
+
+Vulnerability Assessment
+
+Performed:
+
+bash
+nmap --script vuln <target-ip>
+
+
+Objectives achieved:
+
+- Vulnerability identification
+- Service analysis
+- Security weakness discovery
+
+Web Application Security Testing
+
+Tested:
+
+- SQL Injection
+- Stored XSS
+- Reflected XSS
+- CSRF
+
+Tools used:
+
+- DVWA
+- Burp Suite
+
+Objectives achieved:
+
+- OWASP Top 10 understanding
+- Attack simulation
+- Security validation
+
+Exploitation and Post-Exploitation
+
+Tools used:
+
+- Metasploit Framework
+- Hydra
+- John the Ripper
+
+Activities completed:
+
+- Exploitation simulation
+- Password attacks
+- Enumeration
+
+Objectives achieved:
+
+- Understanding attacker methodology
+- Controlled exploitation
+
+Incident Detection
+
+Tools used:
+
+- Wireshark
+- Linux Logs
+
+Activities completed:
+
+- Packet analysis
+- Traffic monitoring
+- Suspicious activity detection
+
+Objectives achieved:
+
+- Threat detection
+- Network visibility
+
+Incident Containment
+
+Implemented:
+
+bash
+sudo iptables -L
+
+
+bash
+sudo iptables -A INPUT -p tcp --dport 23 -j DROP
+
+
+Objectives achieved:
+
+- Traffic filtering
+- Attack containment
+- Service protection
+
+Recovery and Hardening
+
+Activities completed:
+
+- Service review
+- Patch management
+- User access review
+- Firewall configuration
+
+Objectives achieved:
+
+- Reduced attack surface
+- Improved system security
+
+Skills Developed
+
+Offensive Security
+
+- Reconnaissance
+- Enumeration
+- Vulnerability Assessment
+- Exploitation
+- Web Security Testing
+
+Defensive Security
+
+- Incident Response
+- Log Analysis
+- Traffic Monitoring
+- System Hardening
+- Firewall Management
+
+Documentation
+
+- Security Reporting
+- Incident Documentation
+- Risk Assessment
+- Evidence Collection
+
+Major Tools Used
+
+| Tool | Purpose |
+|--------|---------|
+| Nmap | Scanning |
+| Wireshark | Packet Analysis |
+| Burp Suite | Web Testing |
+| Metasploit | Exploitation |
+| Hydra | Password Attacks |
+| John the Ripper | Password Cracking |
+| DVWA | Web Security Lab |
+| iptables | Firewall Configuration |
+
+
+
+Key Lessons Learned
+
+1. Vulnerabilities often originate from poor configurations.
+
+2. Security monitoring is essential for early threat detection.
+
+3. Strong authentication reduces attack success rates.
+
+4. Incident response requires proper planning and documentation.
+
+5. Defense-in-depth significantly improves security posture.
+
+6. Continuous assessment is necessary to maintain security.
+
+Final Deliverables
+
+Completed:
+
+- GitHub Repository
+- Daily Notes (Day 1–60)
+- Screenshots and Evidence
+- Security Documentation
+- Incident Response Documentation
+- Demonstration Videos
+- Final Project Report
+
+Internship Outcome
+
+Successfully completed:
+
+- Network Security
+- Web Application Security
+- Vulnerability Assessment
+- Exploitation
+- Incident Response
+- Security Monitoring
+- System Hardening
+- Security Documentation
+
+# Final Conclusion
+
+The Cybersecurity Capstone Project provided practical experience in identifying, exploiting, detecting, mitigating, and documenting security threats within a controlled environment. The project strengthened both offensive and defensive cybersecurity skills while reinforcing industry-standard methodologies used by security professionals.
+
+All activities performed throughout this internship were conducted strictly in a controlled lab environment for educational and ethical cybersecurity learning purposes only.
