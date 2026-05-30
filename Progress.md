@@ -1776,3 +1776,220 @@ nmap -sV <target-ip>
 sudo iptables -A INPUT -s <ip> -j DROP
 cat /var/log/auth.log
 
+# Day 59 - Final Security Assessment and Risk Analysis
+
+Introduction
+
+A security assessment is the process of evaluating systems, applications, and networks to determine their security posture.
+
+The purpose is to:
+
+- Identify vulnerabilities
+- Analyze risks
+- Evaluate security controls
+- Recommend improvements
+- Strengthen overall security
+
+This phase acts as the final review before completing the capstone project.
+
+Assessment Scope
+
+Systems Assessed
+
+- Kali Linux
+- Metasploitable2
+- DVWA
+
+Areas Reviewed
+
+- Network Security
+- Web Application Security
+- Authentication Security
+- System Hardening
+- Firewall Configuration
+- Incident Response Readiness
+
+
+Security Assessment Methodology
+
+Phase 1 – Asset Identification
+
+Identify systems and services:
+
+bash
+ifconfig
+
+
+bash
+netstat -tulnp
+
+
+Purpose:
+- Discover assets
+- Identify exposed services
+
+Phase 2 – Vulnerability Review
+
+Review previously identified vulnerabilities:
+
+Network Vulnerabilities
+
+- Open ports
+- Weak services
+- Outdated software
+
+Web Vulnerabilities
+
+- SQL Injection
+- Stored XSS
+- Reflected XSS
+- CSRF
+
+Authentication Issues
+
+- Weak passwords
+- Default credentials
+
+
+Phase 3 – Risk Analysis
+
+Risk Formula
+
+Risk = Likelihood × Impact
+
+Risk Assessment Table
+
+| Vulnerability | Likelihood | Impact | Risk Level |
+|-------------|-----------|---------|-----------|
+| SQL Injection | High | High | Critical |
+| Stored XSS | High | Medium | High |
+| Weak Passwords | High | High | Critical |
+| Open Telnet Service | Medium | High | High |
+| Missing Firewall Rules | Medium | Medium | Medium |
+
+Security Controls Evaluated
+
+Firewall Protection
+
+Verify rules:
+
+bash
+sudo iptables -L
+
+
+Assessment:
+- Block unnecessary ports
+- Restrict unauthorized access
+
+
+Access Control
+
+Review:
+
+bash
+cat /etc/passwd
+
+
+Assessment:
+- User accounts
+- Privilege management
+
+Service Security
+
+Check services:
+
+bash
+systemctl list-units --type=service
+
+
+Assessment:
+- Running services
+- Unused services
+
+
+Security Improvements Implemented
+
+Network Security
+
+- Port restrictions
+- Firewall rules
+- Traffic monitoring
+
+Web Security
+
+- Input validation
+- Prepared statements
+- Content Security Policy
+
+System Security
+
+- Disabled unnecessary services
+- Restricted user permissions
+- Applied updates
+
+Incident Response Readiness
+
+Evaluate ability to:
+
+- Detect incidents
+- Analyze attacks
+- Contain threats
+- Recover systems
+- Document findings
+
+
+Findings Summary
+
+Strengths
+
+- Multiple security tools implemented
+- Firewall protection configured
+- Vulnerability testing completed
+- Incident response process documented
+
+Weaknesses
+
+- Vulnerable lab services remain active
+- Default configurations present
+- Weak passwords in testing environment
+
+
+Recommendations
+
+High Priority
+
+- Remove default credentials
+- Disable insecure services
+- Apply latest patches
+- Enforce strong passwords
+
+Medium Priority
+
+- Centralized logging
+- IDS/IPS deployment
+- Security monitoring automation
+
+Low Priority
+
+- Regular security awareness training
+- Scheduled vulnerability assessments
+
+Key Concepts Learned
+
+- Security assessment
+- Risk analysis
+- Vulnerability management
+- Security controls
+- Risk mitigation
+- Security recommendations
+
+Commands Practiced Today
+
+bash
+ifconfig
+netstat -tulnp
+sudo iptables -L
+cat /etc/passwd
+systemctl list-units --type=service
+
+
